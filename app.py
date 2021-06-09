@@ -7,7 +7,7 @@ import joblib from pickle import load
 
 # Initialize the flask App
 app = Flask(__name__)
-app.config[''] = 0
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 # Load the model from pickle file
 pickleModel = load(open('',''))
