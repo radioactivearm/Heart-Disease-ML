@@ -1,4 +1,7 @@
+#===========================
 # Outlined code based off TA Farshad's app.py from https://github.com/esnaaf1/ML_Flask_Demo -
+# Worked on by Jeannaej Yambing
+#===========================
 
 # Import libaries
 import numpy as np
@@ -23,21 +26,10 @@ def home():
 # Define a route that runs when the user clicks the Predict button in the web-app
 @app.route('/predict', methods=['POST'])
 def predict():
-    return render_template('index.html')
+    return "Temporary"
     # # Create a list of the output labels.
-    # prediction_labels = ['Age', 
-    #                      'Chest Pain Type', 
-    #                      'Resting Blood Pressure',
-    #                      'Fasting Blood Sugar',
-    #                      'Cholestrol',
-    #                      'Fasting Bloods Sugar',
-    #                      'Resting ECG',
-    #                      'Maximum Heart Rate',
-    #                      'Exercise Angina',
-    #                      'Old Peak',
-    #                      'ST Slope',
-    #                      'Number of Major Vessels',
-    #                      'Thalassemia']
+    # prediction_labels = ['At risk of Heart Disease', 
+    #                      'Not at risk for Heart Disease' ]
     
     # # Read the list of user-entered values from the website. Note that these will be strings. 
     # features = [x for x in request.form.values()]
@@ -57,17 +49,27 @@ def predict():
     # final_features_scaled = pickleScaler.transform(final_features)
 
     # # Use the scaled values to make the prediction. 
-    # prediction_encoded = pickleModel.predict(final_features_scaled)
+    # prediction_esncoded = pickleModel.predict(final_features_scaled)
     # prediction = prediction_labels[prediction_encoded[0]]
 
     # # Render a template that shows the result.
     # prediction_text = f'Patient is predicted to be:  {prediction}'
     # return render_template('index.html', prediction_text=prediction_text, features=features)
 
-# # Define a route for process write up
-# @app.route('/MLprocess')
-# def process():
-#     return render_template()
+# Define a route for process write up page
+@app.route('/modelprocess')
+def process():
+    #return render_template('secondpage.html')
+
+# Define a route for the feature page
+@app.route('/features')
+def features():
+    return 
+
+# Define a route for the data page
+@app.route('/data')
+def datasets():
+    return 
 
 # Allow the Flask app to launch from the command line
 if __name__ == "__main__":
