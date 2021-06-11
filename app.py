@@ -57,19 +57,14 @@ def predict():
     # return render_template('index.html', prediction_text=prediction_text, features=features)
 
 # Define a route for process write up page
-@app.route('/modelprocess')
-def process():
-    #return render_template('secondpage.html')
-
-# Define a route for the feature page
-@app.route('/features')
-def features():
-    return 
+@app.route('/secondpage.html')
+def modelprocess():
+    return render_template('secondpage.html')
 
 # Define a route for the data page
-@app.route('/data')
-def datasets():
-    return 
+# @app.route('/data')
+# def datasets():
+#     return 
 
 # Allow the Flask app to launch from the command line
 if __name__ == "__main__":
