@@ -6,55 +6,63 @@
 # Import libaries
 import numpy as np
 from flask import Flask, request, jsonify, render_template
-#import joblib from pickle import load
+import joblib 
+from pickle import load
+
+import tensorflow as tf
 
 # Initialize the flask App
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
-# Load the model from pickle file
-# pickleModel = load(open('',''))
+# Load the model from has tensorflow h5 object
+our_model = tf.keras.models.load_model('deepHEART.h5')
 
 # Load scaler from pickle file
-# pickleScaler = load(open('',''))
+pickleScaler = load(open('scaleHEART.pkl','rb'))
 
 # Define the index route
 @app.route('/')
+def inital():
+    return render_template('index.html')
+
+# Define the home route
+@app.route('/index.html')
 def home():
     return render_template('index.html')
 
 # Define a route that runs when the user clicks the Predict button in the web-app
 @app.route('/predict', methods=['POST'])
 def predict():
-    return "Temporary"
-    # # Create a list of the output labels.
-    # prediction_labels = ['At risk of Heart Disease', 
-    #                      'Not at risk for Heart Disease' ]
+
+    # Create a list of the output labels.
+    prediction_labels = ['Have Heart Disease', 
+                         'Not have Heart Disease']
     
-    # # Read the list of user-entered values from the website. Note that these will be strings. 
-    # features = [x for x in request.form.values()]
+    # Read the list of user-entered values from the website. Note that these will be strings. 
+    features = [x for x in request.form.values()]
 
-    # # Convert each value to a float.
-    # float_features = [float(x) for x in features]
+    # Convert each value to a float.
+    float_features = [float(x) for x in features]
 
-    # # Put the list of floats into another list, to make scikit-learn happy. 
-    # # (This is how scikit-learn wants the data formatted. We touched on this
-    # # in class.)
-    # final_features = [np.array(float_features)]
+    # Put the list of floats into another list, to make scikit-learn happy. 
+    # (This is how scikit-learn wants the data formatted. We touched on this
+    # in class.)
+    final_features = [np.array(float_features)]
      
-    # # Preprocess the input using the ORIGINAL (unpickled) scaler.
-    # # This scaler was fit to the TRAINING set when we trained the 
-    # # model, and we must use that same scaler for our prediction 
-    # # or we won't get accurate results. 
-    # final_features_scaled = pickleScaler.transform(final_features)
+    # Preprocess the input using the ORIGINAL (unpickled) scaler.
+    # This scaler was fit to the TRAINING set when we trained the 
+    # model, and we must use that same scaler for our prediction 
+    # or we won't get accurate results. 
+    final_features_scaled = pickleScaler.transform(final_features)
 
-    # # Use the scaled values to make the prediction. 
-    # prediction_esncoded = pickleModel.predict(final_features_scaled)
-    # prediction = prediction_labels[prediction_encoded[0]]
+    # Use the scaled values to make the prediction. 
+    prediction_encoded = our_model.predict(final_features_scaled)
+    prediction = prediction_labels[prediction_encoded[0]]
 
-    # # Render a template that shows the result.
-    # prediction_text = f'Patient is predicted to be:  {prediction}'
-    # return render_template('index.html', prediction_text=prediction_text, features=features)
+    # Render a template that shows the result.
+    prediction_text = f'Patient is predicted to be:  {prediction}'
+    return render_template('index.html', prediction_text=prediction_text, features=features)
 
 # Define a route for process write up page
 @app.route('/secondpage.html')
