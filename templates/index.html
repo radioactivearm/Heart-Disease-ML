@@ -32,7 +32,7 @@
               <a class="nav-link" href="secondpage.html" >Model building process</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Data</a>
+              <a class="nav-link" href="about.html">About Project</a>
             </li>
           </ul>
         </div>
@@ -53,13 +53,13 @@
       </section>
 
 
-      <div id="heart" class="container">
+      <div id="heart" class="container-fluid">
         <br>
         <h1> Predict Heart Disease</h1><br>
         <h3> Enter the following values to predict the possibility of having a Heart Disease</h3>
         <p>To get the best result, read "Expected values" carefully before entering the data</p><br>
         <div class="row margin-top-50">
-          <div class="col-md-2">
+          <div class="col-md-6">
             <aside class="filters">
               <div class="panel panel-default">
                 <div class="panel-body">
@@ -67,56 +67,43 @@
                     <div class="form-group">
                       <ul class="list-group" id="filters">
                         <li class="filter list-group-item">
-                          <label for="datetime">Enter Age</label>
-                          <input class="form-control input-sm" type ="text" name = "age"  placeholder = "Age" required = "required" {% if features %} value = {{features[0]}} {% endif %} />
+                          <input class="form-control input-sm" type ="text" name = "age"  placeholder = "Enter Age" required = "required" {% if features %} value = {{features[0]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                          <label for="city">Enter Sex</label>
-                          <input class="form-control input-sm" type ="text" name = "sex"  placeholder = "Sex" required = "required" {% if features %} value = {{features[1]}} {% endif %} />
+                          <input class="form-control input-sm" type ="text" name = "sex"  placeholder = "Enter Sex" required = "required" {% if features %} value = {{features[1]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                          <label for="state">Enter CP</label>
-                          <input class="form-control input-sm" type ="text" name = "cp"  placeholder = "Chest pain type" required = "required" {% if features %} value = {{features[2]}} {% endif %} />
+                          <input class="form-control input-sm" type ="text" name = "cp"  placeholder = "Enter Chest pain type" required = "required" {% if features %} value = {{features[2]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                          <label for="country">Enter Trestbps</label>
-                          <input class="form-control input-sm" type ="text" name = "trestbps"  placeholder = "Resting blood pressure" required = "required" {% if features %} value = {{features[3]}} {% endif %} />
+                          <input class="form-control input-sm" type ="text" name = "trestbps"  placeholder = "Enter Resting blood pressure" required = "required" {% if features %} value = {{features[3]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                          <label for="shape">Enter Chol</label>
-                          <input class="form-control input-sm" type ="text" name = "chol"  placeholder = "Serum cholestoral" required = "required" {% if features %} value = {{features[4]}} {% endif %} />
+                          <input class="form-control input-sm" type ="text" name = "chol"  placeholder = "Enter Serum cholestoral" required = "required" {% if features %} value = {{features[4]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                            <label for="shape">Enter FBS</label>
-                            <input class="form-control input-sm" type ="text" name = "fbs"  placeholder = "Fasting blood sugar " required = "required" {% if features %} value = {{features[5]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "fbs"  placeholder = "Enter Fasting blood sugar " required = "required" {% if features %} value = {{features[5]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                            <label for="shape">Enter Restecg</label>
-                            <input class="form-control input-sm" type ="text" name = "restecg"  placeholder = "Resting electrocardiographic results" required = "required" {% if features %} value = {{features[6]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "restecg"  placeholder = "Enter Resting electrocardiographic results" required = "required" {% if features %} value = {{features[6]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                            <label for="shape">Enter Thalach</label>
-                            <input class="form-control input-sm" type ="text" name = "thalach"  placeholder = "Maximum heart rate achieved" required = "required" {% if features %} value = {{features[7]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "thalach"  placeholder = "Enter Maximum heart rate achieved" required = "required" {% if features %} value = {{features[7]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                            <label for="shape">Enter Exang</label>
-                            <input class="form-control input-sm" type ="text" name = "exang"  placeholder = "Exercise induced angina " required = "required" {% if features %} value = {{features[8]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "exang"  placeholder = "Enter Exercise induced angina " required = "required" {% if features %} value = {{features[8]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                            <label for="shape">Enter Oldpeak</label>
-                            <input class="form-control input-sm" type ="text" name = "oldpeak"  placeholder = "ST oldpeak" required = "required" {% if features %} value = {{features[9]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "oldpeak"  placeholder = "Enter ST oldpeak" required = "required" {% if features %} value = {{features[9]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                            <label for="shape">Enter Slope</label>
-                            <input class="form-control input-sm" type ="text" name = "slope"  placeholder = "Slope peak" required = "required" {% if features %} value = {{features[10]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "slope"  placeholder = "Enter Slope peak" required = "required" {% if features %} value = {{features[10]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                            <label for="shape">Enter CA</label>
-                            <input class="form-control input-sm" type ="text" name = "ca"  placeholder = "Number of major vessels" required = "required" {% if features %} value = {{features[11]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "ca"  placeholder = "Enter Number of major vessels" required = "required" {% if features %} value = {{features[11]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
-                            <label for="shape">Enter Thal</label>
-                            <input class="form-control input-sm" type ="text" name = "thal"  placeholder = "Thalassemia" required = "required" {% if features %} value = {{features[12]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "thal"  placeholder = "Enter Thalassemia" required = "required" {% if features %} value = {{features[12]}} {% endif %} />
                         </li>
                           
                       </ul>
@@ -127,7 +114,7 @@
               </div>
             </aside>
           </div>
-          <div class="col-md-10">
+          <div class="col-md-6">
             <div id="table-area" class="">
                 <br>
                 {{ prediction_text }}
