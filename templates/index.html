@@ -39,67 +39,67 @@
       <div class="container">
         <br>
         <h1> Predict Heart Disease</h1><br>
-        <h3> Enter the following values to predict the possibility of having a Heart Disease</h3><br>
+        <h3> Enter the following values to predict the possibility of having a Heart Disease</h3>
+        <p>To get the best result, read "Expected values" carefully before entering the data</p><br>
         <div class="row margin-top-50">
           <div class="col-md-2">
             <aside class="filters">
               <div class="panel panel-default">
-                <div class="panel-heading">Enter Data</div>
                 <div class="panel-body">
                   <form id="form" action ="{{url_for('predict')}}"method= "post">
                     <div class="form-group">
                       <ul class="list-group" id="filters">
                         <li class="filter list-group-item">
                           <label for="datetime">Enter Age</label>
-                          <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[0]}} {% endif %} />
+                          <input class="form-control input-sm" type ="text" name = "age"  placeholder = "Age" required = "required" {% if features %} value = {{features[0]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                           <label for="city">Enter Sex</label>
-                          <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[1]}} {% endif %} />
+                          <input class="form-control input-sm" type ="text" name = "sex"  placeholder = "Sex" required = "required" {% if features %} value = {{features[1]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                           <label for="state">Enter CP</label>
-                          <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[2]}} {% endif %} />
+                          <input class="form-control input-sm" type ="text" name = "cp"  placeholder = "Chest pain type" required = "required" {% if features %} value = {{features[2]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                           <label for="country">Enter Trestbps</label>
-                          <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[3]}} {% endif %} />
+                          <input class="form-control input-sm" type ="text" name = "trestbps"  placeholder = "Resting blood pressure" required = "required" {% if features %} value = {{features[3]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                           <label for="shape">Enter Chol</label>
-                          <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[4]}} {% endif %} />
+                          <input class="form-control input-sm" type ="text" name = "chol"  placeholder = "Serum cholestoral" required = "required" {% if features %} value = {{features[4]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                             <label for="shape">Enter FBS</label>
-                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[5]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "fbs"  placeholder = "Fasting blood sugar " required = "required" {% if features %} value = {{features[5]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                             <label for="shape">Enter Restecg</label>
-                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[6]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "restecg"  placeholder = "Resting electrocardiographic results" required = "required" {% if features %} value = {{features[6]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                             <label for="shape">Enter Thalach</label>
-                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[7]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "thalach"  placeholder = "Maximum heart rate achieved" required = "required" {% if features %} value = {{features[7]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                             <label for="shape">Enter Exang</label>
-                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[8]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "exang"  placeholder = "Exercise induced angina " required = "required" {% if features %} value = {{features[8]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                             <label for="shape">Enter Oldpeak</label>
-                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[9]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "oldpeak"  placeholder = "ST oldpeak" required = "required" {% if features %} value = {{features[9]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                             <label for="shape">Enter Slope</label>
-                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[10]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "slope"  placeholder = "Slope peak" required = "required" {% if features %} value = {{features[10]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                             <label for="shape">Enter CA</label>
-                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[11]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "ca"  placeholder = "Number of major vessels" required = "required" {% if features %} value = {{features[11]}} {% endif %} />
                         </li>
                         <li class="filter list-group-item">
                             <label for="shape">Enter Thal</label>
-                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[12]}} {% endif %} />
+                            <input class="form-control input-sm" type ="text" name = "thal"  placeholder = "Thalassemia" required = "required" {% if features %} value = {{features[12]}} {% endif %} />
                         </li>
                           
                       </ul>
@@ -117,19 +117,19 @@
                 <br>
                 <p>
                     <h3>Expected values:</h3>
-                  1. Age: age in years<br>
-                  2. Sex: sex (1 = male; 0 = female)<br>
-                  3. CP: chest pain type (Value 0: typical angina; Value 1: atypical angina; Value 2: non-anginal pain; Value 3: asymptomatic)<br>
-                  4. Trestbps: resting blood pressure in mm Hg on admission to the hospital<br>
-                  5. Chol: serum cholestoral in mg/dl<br>
-                  6. FBS: fasting blood sugar > 120 mg/dl (1 = true; 0 = false)<br>
-                  7. Restecg: resting electrocardiographic results (Value 0: normal; Value 1: having ST-T wave abnormality; Value 2: probable or definite left ventricular hypertrophy)<br>
-                  8. Thalach: maximum heart rate achieved<br>
-                  9. Exang: exercise induced angina (1 = yes; 0 = no)<br>
-                  10. Oldpeak: ST depression induced by exercise relative to rest<br>
-                  11. Slope: the slope of the peak exercise ST segment (Value 0: upsloping; Value 1: flat; Value 2: downsloping)<br>
-                  12. CA: number of major vessels (0-3) colored by flourosopy<br>
-                  13. Thal: thalassemia (3 = normal; 6 = fixed defect; 7 = reversable defect)<br>
+                  1. Age - enter age in years<br>
+                  2. Sex - enter sex (1 for male; 0 for female)<br>
+                  3. CP - enter chest pain type (0 for typical angina; 1 for atypical angina; 2 for non-anginal pain; 3 for asymptomatic)<br>
+                  4. Trestbps - enter the resting blood pressure in mm Hg on admission to the hospital<br>
+                  5. Chol - enter serum cholestoral in mg/dl<br>
+                  6. FBS - enter fasting blood sugar > 120 mg/dl (1 for true; 0 for false)<br>
+                  7. Restecg - enter resting electrocardiographic results (0 for normal; 1 for having ST-T wave abnormality; 2 for probable or definite left ventricular hypertrophy)<br>
+                  8. Thalach - maximum heart rate achieved<br>
+                  9. Exang - exercise induced angina (1 for yes; 0 for no)<br>
+                  10. Oldpeak - ST depression induced by exercise relative to rest<br>
+                  11. Slope - the slope of the peak exercise ST segment (0 for upsloping; 1 for flat; 2 for downsloping)<br>
+                  12. CA - number of major vessels (0-3) colored by flourosopy<br>
+                  13. Thal - thalassemia (3 for normal; 6 for fixed defect; 7 for reversable defect)<br>
                 </p>
             </div>
           </div>
