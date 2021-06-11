@@ -11,6 +11,8 @@
     <title>Heart Disease ML</title>
   </head>
   <body>
+
+
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <a class="navbar-brand" href="#">
             <img class="heart" src="/static/images/istockphoto-1063503426-612x612.jpeg" width="50" height="50"> 
@@ -21,78 +23,119 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.html">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="secondpage.html">Model building process</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Data</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
           </ul>
         </div>
       </nav>
-      <div class = "ML_inputs">
-        <h1> Predict Heart Disease</h1>
-          <h3> Enter the following values to predict the possibility of having a Heart Disease</h3>
-      
-          <!-- Input section using a form and the Hypertext Transfer Protocol (HTTP) POST method -->
-          <!-- Pass the form input to 'url_for'.  Make sure that the url_for argument matches the route method name  in app.py -->
-          <form action ="{{url_for('predict')}}"method= "post">
-            <!-- We are using Jinja if statement to fill the previous values from the Flask server if data has been entered -->
-            <input type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[0]}} {% endif %} />
-            <input type ="text" name = "sepal_width"  placeholder = "Sepal Width" required = "required" {% if features %} value = {{features[1]}} {% endif %} />
-            <input type ="text" name = "petal_length"  placeholder = "Petal Length" required = "required" {% if features %} value = {{features[2]}} {% endif %} />
-            <input type ="text" name = "petal_width"  placeholder = "Petal Width" required = "required" {% if features %} value = {{features[3]}} {% endif %} />
-            <input type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[0]}} {% endif %} />
-            <input type ="text" name = "sepal_width"  placeholder = "Sepal Width" required = "required" {% if features %} value = {{features[1]}} {% endif %} />
-            <input type ="text" name = "petal_length"  placeholder = "Petal Length" required = "required" {% if features %} value = {{features[2]}} {% endif %} />
-            <input type ="text" name = "petal_width"  placeholder = "Petal Width" required = "required" {% if features %} value = {{features[3]}} {% endif %} />
-            <input type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[0]}} {% endif %} />
-            <input type ="text" name = "sepal_width"  placeholder = "Sepal Width" required = "required" {% if features %} value = {{features[1]}} {% endif %} />
-            <input type ="text" name = "petal_length"  placeholder = "Petal Length" required = "required" {% if features %} value = {{features[2]}} {% endif %} />
-            <input type ="text" name = "petal_width"  placeholder = "Petal Width" required = "required" {% if features %} value = {{features[3]}} {% endif %} />
-            <input type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[0]}} {% endif %} />
-            <input type ="text" name = "sepal_width"  placeholder = "Sepal Width" required = "required" {% if features %} value = {{features[1]}} {% endif %} />
-            
-            <button type ="submit" class ="btn"> Predict</button>
-          </form>
-      
-          <br>
-          <br>
-          {{ prediction_text }}
+
+
+      <div class="container">
+        <br>
+        <h1> Predict Heart Disease</h1><br>
+        <h3> Enter the following values to predict the possibility of having a Heart Disease</h3><br>
+        <div class="row margin-top-50">
+          <div class="col-md-2">
+            <aside class="filters">
+              <div class="panel panel-default">
+                <div class="panel-heading">Enter Data</div>
+                <div class="panel-body">
+                  <form id="form" action ="{{url_for('predict')}}"method= "post">
+                    <div class="form-group">
+                      <ul class="list-group" id="filters">
+                        <li class="filter list-group-item">
+                          <label for="datetime">Enter Age</label>
+                          <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[0]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                          <label for="city">Enter Sex</label>
+                          <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[1]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                          <label for="state">Enter CP</label>
+                          <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[2]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                          <label for="country">Enter Trestbps</label>
+                          <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[3]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                          <label for="shape">Enter Chol</label>
+                          <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[4]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                            <label for="shape">Enter FBS</label>
+                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[5]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                            <label for="shape">Enter Restecg</label>
+                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[6]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                            <label for="shape">Enter Thalach</label>
+                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[7]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                            <label for="shape">Enter Exang</label>
+                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[8]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                            <label for="shape">Enter Oldpeak</label>
+                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[9]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                            <label for="shape">Enter Slope</label>
+                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[10]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                            <label for="shape">Enter CA</label>
+                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[11]}} {% endif %} />
+                        </li>
+                        <li class="filter list-group-item">
+                            <label for="shape">Enter Thal</label>
+                            <input class="form-control input-sm" type ="text" name = "sepal_length"  placeholder = "Sepal Length" required = "required" {% if features %} value = {{features[12]}} {% endif %} />
+                        </li>
+                          
+                      </ul>
+                    </div>
+                    <button type ="submit" class ="btn btn-primary"> Predict</button>
+                  </form>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="col-md-10">
+            <div id="table-area" class="">
+                <br>
+                {{ prediction_text }}
+                <br>
+                <p>
+                    <h3>Expected values:</h3>
+                  1. Age: age in years<br>
+                  2. Sex: sex (1 = male; 0 = female)<br>
+                  3. CP: chest pain type (Value 0: typical angina; Value 1: atypical angina; Value 2: non-anginal pain; Value 3: asymptomatic)<br>
+                  4. Trestbps: resting blood pressure in mm Hg on admission to the hospital<br>
+                  5. Chol: serum cholestoral in mg/dl<br>
+                  6. FBS: fasting blood sugar > 120 mg/dl (1 = true; 0 = false)<br>
+                  7. Restecg: resting electrocardiographic results (Value 0: normal; Value 1: having ST-T wave abnormality; Value 2: probable or definite left ventricular hypertrophy)<br>
+                  8. Thalach: maximum heart rate achieved<br>
+                  9. Exang: exercise induced angina (1 = yes; 0 = no)<br>
+                  10. Oldpeak: ST depression induced by exercise relative to rest<br>
+                  11. Slope: the slope of the peak exercise ST segment (Value 0: upsloping; Value 1: flat; Value 2: downsloping)<br>
+                  12. CA: number of major vessels (0-3) colored by flourosopy<br>
+                  13. Thal: thalassemia (3 = normal; 6 = fixed defect; 7 = reversable defect)<br>
+                </p>
+            </div>
+          </div>
+          </div>
+        </div>
       </div>
-      <div>
-          <p>
-              <h3>Expected values:</h3>
-            1. age: age in years<br>
-            2. sex: sex (1 = male; 0 = female)<br>
-            3. cp: chest pain type (Value 0: typical angina; Value 1: atypical angina; Value 2: non-anginal pain; Value 3: asymptomatic)<br>
-            4. trestbps: resting blood pressure in mm Hg on admission to the hospital<br>
-            5. chol: serum cholestoral in mg/dl<br>
-            6. fbs: fasting blood sugar > 120 mg/dl (1 = true; 0 = false)<br>
-            7. restecg: resting electrocardiographic results (Value 0: normal; Value 1: having ST-T wave abnormality; Value 2: probable or definite left ventricular hypertrophy)<br>
-            8. thalach: maximum heart rate achieved<br>
-            9. exang: exercise induced angina (1 = yes; 0 = no)<br>
-            10. oldpeak: ST depression induced by exercise relative to rest<br>
-            11. slope: the slope of the peak exercise ST segment (Value 0: upsloping; Value 1: flat; Value 2: downsloping)<br>
-            12. ca: number of major vessels (0-3) colored by flourosopy<br>
-            13. thal: thalassemia (3 = normal; 6 = fixed defect; 7 = reversable defect)<br>
-          </p>
-      </div>
-    
-           
-        
 
     <!-- Optional JavaScript; choose one of the two! -->
 
