@@ -54,13 +54,9 @@ body {
 }
 
 #heart {
-    background-color:rgba(255, 0, 0, 0.2);
+    background-color: rgb(65,105,225, 0.2);
 }
 
-/* .panel {
-    background-color:rgba(255, 0, 0, 0.5);
-} */
-
 .list-group-item {
-    background-color:rgba(255, 0, 0, 0.5);
+    background-color:rgb(65,105,225, 0.5);
 }
