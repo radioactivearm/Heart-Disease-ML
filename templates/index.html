@@ -53,7 +53,17 @@
     
       </section>
 
-
+      <!-- https://stackoverflow.com/questions/31863582/automatically-scroll-to-a-div-when-flask-returns-rendered-template -->
+      <div id='refresher'>
+        {% if scroll %}
+        <script>
+            document.getElementById('{{ scroll }}').scrollIntoView();
+            // or
+            document.location.hash = '#' + '{{ scroll }}';
+        </script>
+        {% endif %}
+      </div>
+      
       <div id="heart" class="container-fluid">
         <br>
         <h1> Predict Heart Disease</h1><br>
@@ -113,7 +123,7 @@
           <div class="col-md-6">
             <div id="table-area" class="">
                 <br>
-                {{ prediction_text }}
+                <h3>{{ prediction_text }}</h3>
                 <br>
                 <p>
                     <h3>Expected values:</h3>

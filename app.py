@@ -8,6 +8,7 @@ import numpy as np
 from flask import Flask, request, jsonify, render_template
 import joblib 
 from pickle import load
+# from keras.models import load_model
 
 import tensorflow as tf
 
@@ -15,8 +16,17 @@ import tensorflow as tf
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
-# Load the model from has tensorflow h5 object
-our_model = tf.keras.models.load_model('deepHEART.h5')
+
+# Define a session and a default computation graph
+# Dom's help 
+sess = tf.compat.v1.Session()
+graph = tf.compat.v1.get_default_graph()
+tf.compat.v1.keras.backend.set_session(sess)
+tf.compat.v1.disable_eager_execution()
+
+# Load the neural network model from its .h5fs file.
+# Dom's help
+nn = tf.keras.models.load_model('deepHEART.h5')
 
 # Load scaler from pickle file
 pickleScaler = load(open('scaleHEART.pkl','rb'))
@@ -36,8 +46,8 @@ def home():
 def predict():
 
     # Create a list of the output labels.
-    prediction_labels = ['Have Heart Disease', 
-                         'Not have Heart Disease']
+    prediction_labels = ['The Patient Has Heart Disease', 
+                         'The Patient Does Not Have Heart Disease']
     
     # Read the list of user-entered values from the website. Note that these will be strings. 
     features = [x for x in request.form.values()]
@@ -48,8 +58,8 @@ def predict():
     # Put the list of floats into another list, to make scikit-learn happy. 
     # (This is how scikit-learn wants the data formatted. We touched on this
     # in class.)
-    final_features = np.array(float_features)
-    print(f'final_features = {final_features}')
+    final_features = np.array([np.array(float_features)])
+    # prediction = f'final_features.shape = {final_features.shape}'
 
      
     # Preprocess the input using the ORIGINAL (unpickled) scaler.
@@ -58,13 +68,25 @@ def predict():
     # or we won't get accurate results. 
     final_features_scaled = pickleScaler.transform(final_features)
 
+
     # Use the scaled values to make the prediction. 
-    prediction_encoded = our_model.predict(final_features_scaled)
-    prediction = prediction_labels[prediction_encoded[0]]
+    # Dom's Help
+    global sess
+    global graph
+    with graph.as_default():
+        tf.compat.v1.keras.backend.set_session(sess)
+        # prediction_encoded = nn.predict_classes(final_features_scaled)
+        prediction_encoded = np.argmax(nn.predict(final_features_scaled), axis=-1)
+        prediction = prediction_labels[prediction_encoded[0]]
+
+    # prediction = prediction_labels[prediction_encoded[0]]
+
+    # prediction = 'hello'
+
 
     # Render a template that shows the result.
-    prediction_text = f'Patient is predicted to be:  {prediction}'
-    return render_template('index.html', prediction_text=prediction_text, features=features)
+    prediction_text = f'Prediction: {prediction}'
+    return render_template('index.html', scroll='refresher', prediction_text=prediction_text, features=features)
 
 # Define a route for process write up page
 @app.route('/secondpage.html')
