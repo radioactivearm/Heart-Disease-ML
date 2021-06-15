@@ -8,6 +8,7 @@ import numpy as np
 from flask import Flask, request, jsonify, render_template
 import joblib 
 from pickle import load
+import pandas as pd
 # from keras.models import load_model
 
 import tensorflow as tf
@@ -92,6 +93,7 @@ def predict():
 @app.route('/secondpage.html')
 def modelprocess():
     return render_template('secondpage.html')
+
 
 # Define a route for the data page
 # @app.route('/data')
