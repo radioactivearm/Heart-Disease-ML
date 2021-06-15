@@ -67,3 +67,8 @@ body {
     padding-top: 1%;
     font-size: large;
 }
+
+.predict-b {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
