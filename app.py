@@ -1,5 +1,6 @@
 #===========================
-# Outlined code based off TA Farshad's app.py from https://github.com/esnaaf1/ML_Flask_Demo -
+# Outlined code based off TA Farshad's app.py from https://github.com/esnaaf1/ML_Flask_Demo
+# Dom helped us create a new environment for our prediction
 # Worked on by Jeannaej Yambing
 #===========================
 
@@ -61,13 +62,11 @@ def predict():
     final_features = np.array([np.array(float_features)])
     # prediction = f'final_features.shape = {final_features.shape}'
 
-     
     # Preprocess the input using the ORIGINAL (unpickled) scaler.
     # This scaler was fit to the TRAINING set when we trained the 
     # model, and we must use that same scaler for our prediction 
     # or we won't get accurate results. 
     final_features_scaled = pickleScaler.transform(final_features)
-
 
     # Use the scaled values to make the prediction. 
     # Dom's Help
@@ -83,7 +82,6 @@ def predict():
 
     # prediction = 'hello'
 
-
     # Render a template that shows the result.
     prediction_text = f'Prediction: {prediction}'
     return render_template('index.html', scroll='refresher', prediction_text=prediction_text, features=features)
@@ -94,9 +92,9 @@ def modelprocess():
     return render_template('secondpage.html')
 
 # Define a route for the data page
-# @app.route('/data')
-# def datasets():
-#     return 
+@app.route('/about.html')
+def datasets():
+    return render_template('about.html')
 
 # Allow the Flask app to launch from the command line
 if __name__ == "__main__":
