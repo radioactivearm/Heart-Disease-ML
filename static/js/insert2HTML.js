@@ -104,62 +104,62 @@ function MD() {
                 // if it has 6 #'s make it a h6 header
                 } else if (entry.startsWith('######')) {
 
-                    htmlString = htmlString + '<h6>' + handleHeader(entry) + '</h6>';
+                    htmlString = htmlString + '<h6 class="inserted">' + handleHeader(entry) + '</h6>';
 
                 // if it has 5 #'s make it a h5 header
                 } else if (entry.startsWith('#####')) {
 
-                    htmlString = htmlString + '<h5>' + handleHeader(entry) + '</h5>';
+                    htmlString = htmlString + '<h5 class="inserted">' + handleHeader(entry) + '</h5>';
 
                 // if it has 4 #'s make it a h4 header
                 } else if (entry.startsWith('####')) {
 
-                    htmlString = htmlString + '<h4>' + handleHeader(entry) + '</h4>';
+                    htmlString = htmlString + '<h4 class="inserted">' + handleHeader(entry) + '</h4>';
 
                 // if it has 3 #'s make it a h3 header
                 } else if (entry.startsWith('###')) {
 
-                    htmlString = htmlString + '<h3>' + handleHeader(entry) + '</h3>';
+                    htmlString = htmlString + '<h3 class="inserted">' + handleHeader(entry) + '</h3>';
 
                 // if it has 2 #'s make it a h2 header
                 } else if (entry.startsWith('##')) {
 
-                    htmlString = htmlString + '<h2>' + handleHeader(entry) + '</h2>';
+                    htmlString = htmlString + '<h2 class="inserted">' + handleHeader(entry) + '</h2>';
 
                 // if it has 1 # make it a h1 header
                 } else if (entry.startsWith('#')) {
 
-                    htmlString = htmlString + '<h1>' + handleHeader(entry) + '</h1>';
+                    htmlString = htmlString + '<h1 class="inserted">' + handleHeader(entry) + '</h1>';
 
                 // if it is the first of set of an unordered list do this
                 } else if (entry.startsWith('*') && !mdArray[i-1].startsWith('*')) {
 
-                    htmlString = htmlString + '<ul><li>' + handleUlist(entry) + '</li>';
+                    htmlString = htmlString + '<ul><li class="inserted">' + handleUlist(entry) + '</li>';
 
                 // if it is the last of a set of an unordered list do this
                 } else if (entry.startsWith('*') && !mdArray[i+1].startsWith('*')) {
 
-                    htmlString = htmlString + '<li>' + handleUlist(entry) + '</li></ul>';
+                    htmlString = htmlString + '<li class="inserted">' + handleUlist(entry) + '</li></ul>';
                 
                 // if it is in the middle of a set of an unordered list do this
                 } else if (entry.startsWith('*')) {
 
-                    htmlString = htmlString + '<li>' + handleUlist(entry) + '</li>';
+                    htmlString = htmlString + '<li class="inserted">' + handleUlist(entry) + '</li>';
                     
                 // if it is the first of a set of an ordered list do this
                 } else if (entry.startsWith('1.') && !mdArray[i-1].startsWith('1.')) {
 
-                    htmlString = htmlString + '<ol><li>' + handleOlist(entry) + '</li>';
+                    htmlString = htmlString + '<ol><li class="inserted">' + handleOlist(entry) + '</li>';
 
                 // if it is the last of a set of an ordered list do this
                 } else if (entry.startsWith('1.') && !mdArray[i+1].startsWith('1.')) {
 
-                    htmlString = htmlString + '<li>' + handleOlist(entry) + '</li></ol>';
+                    htmlString = htmlString + '<li class="inserted">' + handleOlist(entry) + '</li></ol>';
                 
                 // if it is in the middle of a set of an ordered list do this
                 } else if (entry.startsWith('1.')) {
 
-                    htmlString = htmlString + '<li>' + handleOlist(entry) + '</li>';
+                    htmlString = htmlString + '<li class="inserted">' + handleOlist(entry) + '</li>';
                     
                 // if it is the last element in the array, the one I added on,
                 // so I could handle a list at the end of the md, just do this
@@ -180,7 +180,7 @@ function MD() {
                 // and if it is just plain text, just shove it into a paragraph element
                 } else {
 
-                    htmlString = htmlString + '<p>' + handleHeader(entry) + '</p>';
+                    htmlString = htmlString + '<p class="inserted">' + handleHeader(entry) + '</p>';
 
                 }
                 

@@ -60,3 +60,10 @@ body {
 .list-group-item {
     background-color:rgb(65,105,225, 0.5);
 }
+
+
+.inserted p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 1%;
+    font-size: large;
+}
