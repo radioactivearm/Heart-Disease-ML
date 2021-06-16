@@ -84,6 +84,7 @@ def predict():
         percent = str(round(100*higher(preditor), 2))
         # -------------------------------------------
 
+
         prediction = prediction_labels[prediction_encoded[0]] + ' ('+ percent + '%)'
 
     # Render a template that shows the result.
