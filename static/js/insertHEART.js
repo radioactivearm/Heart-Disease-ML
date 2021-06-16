@@ -56,9 +56,33 @@ function insertHEART() {
     });
     // console.log(clinic);
 
-
-
- 
-
-
 }
+
+
+function colorResult() {
+    // let handle = d3.select('#pred');
+    
+
+    let handle = document.getElementById("pred")
+
+
+    console.log('this is running');
+
+    console.log(handle.textContent);
+
+    if (handle.textContent.includes('Does')) {
+        handle.style.backgroundColor = '#90EE90';
+    } else {
+        handle.style.backgroundColor = '#e03a3db4';
+    }
+
+    // if (handle.text().includes('Does')) {
+    //     handle.classed('nResult', false).classed('pResult', true);
+    // } else {
+    //     handle.classed('pResult', false).classed('nResult', true);
+    // }
+
+    // console.log(handle.attr('class'));
+}
+
+colorResult();

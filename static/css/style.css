@@ -79,3 +79,10 @@ body {
     background-color:#e03a3db4;
     border-radius: 7.5px;
 }
+
+.pResults {
+    text-align:center;
+    font-size: 48px; 
+    background-color: rgb(123, 202, 123);
+    border-radius: 7.5px;
+}
