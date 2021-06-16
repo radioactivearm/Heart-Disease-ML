@@ -70,6 +70,30 @@
         <h3> Enter the following values to predict the possibility of having a Heart Disease</h3>
         <p>To get the best result, read "Expected values" carefully before entering the data</p><br>
         <div class="row margin-top-50">
+          
+          <div class="col-md-6">
+            <div id="table-area" class="">
+                <br>
+                <h3 class= "results">{{ prediction_text }}</h3>
+                <br>
+                <p>
+                    <h3>Expected values:</h3>
+                  1. Age - enter age in years<br>
+                  2. Sex - enter sex (1 for male; 0 for female)<br>
+                  3. CP - enter chest pain type (0 for typical angina; 1 for atypical angina; 2 for non-anginal pain; 3 for asymptomatic)<br>
+                  4. Trestbps - enter the resting blood pressure in mm Hg on admission to the hospital<br>
+                  5. Chol - enter serum cholestoral in mg/dl<br>
+                  6. FBS - enter fasting blood sugar > 120 mg/dl (1 for true; 0 for false)<br>
+                  7. Restecg - enter resting electrocardiographic results (0 for normal; 1 for having ST-T wave abnormality; 2 for probable or definite left ventricular hypertrophy)<br>
+                  8. Thalach - maximum heart rate achieved<br>
+                  9. Exang - exercise induced angina (1 for yes; 0 for no)<br>
+                  10. Oldpeak - ST depression induced by exercise relative to rest<br>
+                  11. Slope - the slope of the peak exercise ST segment (0 for upsloping; 1 for flat; 2 for downsloping)<br>
+                </p>
+                <button class ="btn btn-danger btn-lg" id='in-btn' onclick="insertHEART();">Examples</button>
+            </div>
+          </div>
+          
           <div class="col-md-6">
             <aside class="filters">
               <div class="panel panel-default">
@@ -119,28 +143,6 @@
                 </div>
               </div>
             </aside>
-          </div>
-          <div class="col-md-6">
-            <div id="table-area" class="">
-                <br>
-                <h3>{{ prediction_text }}</h3>
-                <br>
-                <p>
-                    <h3>Expected values:</h3>
-                  1. Age - enter age in years<br>
-                  2. Sex - enter sex (1 for male; 0 for female)<br>
-                  3. CP - enter chest pain type (0 for typical angina; 1 for atypical angina; 2 for non-anginal pain; 3 for asymptomatic)<br>
-                  4. Trestbps - enter the resting blood pressure in mm Hg on admission to the hospital<br>
-                  5. Chol - enter serum cholestoral in mg/dl<br>
-                  6. FBS - enter fasting blood sugar > 120 mg/dl (1 for true; 0 for false)<br>
-                  7. Restecg - enter resting electrocardiographic results (0 for normal; 1 for having ST-T wave abnormality; 2 for probable or definite left ventricular hypertrophy)<br>
-                  8. Thalach - maximum heart rate achieved<br>
-                  9. Exang - exercise induced angina (1 for yes; 0 for no)<br>
-                  10. Oldpeak - ST depression induced by exercise relative to rest<br>
-                  11. Slope - the slope of the peak exercise ST segment (0 for upsloping; 1 for flat; 2 for downsloping)<br>
-                </p>
-                <button class ="btn btn-danger btn-lg" id='in-btn' onclick="insertHEART();">Random</button>
-            </div>
           </div>
           </div>
         </div>
