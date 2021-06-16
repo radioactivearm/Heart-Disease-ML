@@ -73,5 +73,9 @@ body {
     margin-bottom: 10px;
 }
 
-
-  
+.results {
+    text-align:center;
+    font-size: 48px; 
+    background-color:#e03a3db4;
+    border-radius: 7.5px;
+}

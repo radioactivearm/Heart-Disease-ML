@@ -10,14 +10,12 @@ from flask import Flask, request, jsonify, render_template
 import joblib 
 from pickle import load
 import pandas as pd
-# from keras.models import load_model
 
 import tensorflow as tf
 
 # Initialize the flask App
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-
 
 # Define a session and a default computation graph
 # Dom's help 
@@ -58,15 +56,10 @@ def predict():
     float_features = [float(x) for x in features]
 
     # Put the list of floats into another list, to make scikit-learn happy. 
-    # (This is how scikit-learn wants the data formatted. We touched on this
-    # in class.)
     final_features = np.array([np.array(float_features)])
-    # prediction = f'final_features.shape = {final_features.shape}'
 
     # Preprocess the input using the ORIGINAL (unpickled) scaler.
-    # This scaler was fit to the TRAINING set when we trained the 
-    # model, and we must use that same scaler for our prediction 
-    # or we won't get accurate results. 
+    # This scaler was fit to the TRAINING set when we trained the model, and we must use that same scaler for our prediction or we won't get accurate results. 
     final_features_scaled = pickleScaler.transform(final_features)
 
     # Use the scaled values to make the prediction. 
@@ -75,7 +68,7 @@ def predict():
     global graph
     with graph.as_default():
         tf.compat.v1.keras.backend.set_session(sess)
-        # prediction_encoded = nn.predict_classes(final_features_scaled)
+      
         prediction_encoded = np.argmax(nn.predict(final_features_scaled), axis=-1)
 
         # ------------------------------------------
@@ -93,10 +86,6 @@ def predict():
 
         prediction = prediction_labels[prediction_encoded[0]] + ' ('+ percent + '%)'
 
-    # prediction = prediction_labels[prediction_encoded[0]]
-
-    # prediction = 'hello'
-
     # Render a template that shows the result.
     prediction_text = f'Prediction: {prediction}'
     return render_template('index.html', scroll='refresher', prediction_text=prediction_text, features=features)
@@ -105,7 +94,6 @@ def predict():
 @app.route('/secondpage.html')
 def modelprocess():
     return render_template('secondpage.html')
-
 
 # Define a route for the data page
 @app.route('/about.html')
