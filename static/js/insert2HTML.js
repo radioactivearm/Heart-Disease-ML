@@ -175,7 +175,7 @@ function MD() {
                 // if it is an image tag, make it a make element with a unique id, so you can customize each photo in css
                 } else if (entry.startsWith('!')) {
 
-                    htmlString = htmlString + '<img id=' + `inserted-img${i}` + ' class="inserted-img" src=' + handleImage(entry)[1] + 'width=100% ref=' + handleImage(entry)[0] + '>';
+                    htmlString = htmlString + '<img id=' + `inserted-img${i}` + ' class="inserted-img" src=' + handleImage(entry)[1] + ' ref=' + handleImage(entry)[0] + '>';
 
                 // and if it is just plain text, just shove it into a paragraph element
                 } else {
