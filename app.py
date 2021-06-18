@@ -73,15 +73,17 @@ def predict():
 
         # ------------------------------------------
         # Andy
-        preditor = nn.predict(final_features_scaled)
+        # a little bit of code that adds a percentage
+        # to prediction
+        predictor = nn.predict(final_features_scaled)
 
-        def higher(preditor):
-            if preditor[0][0] > preditor[0][1]:
-                return preditor[0][0]
+        def higher(predictor):
+            if predictor[0][0] > predictor[0][1]:
+                return predictor[0][0]
             else:
-                return preditor[0][1]
+                return predictor[0][1]
             
-        percent = str(round(100*higher(preditor), 2))
+        percent = str(round(100*higher(predictor), 2))
         # -------------------------------------------
 
 
