@@ -19,18 +19,15 @@ The deepheart website uses Neural Network to predict if a patient does or does n
 1. Notice that Flask server starts and tells you which port it is running on.  Don't close this window
 1. Enter the following address in your Chrome browser: http://127.0.0.1:5000/
 1. Enter data for Age, Sex, Chest Pain Type, Resting Blood Pressure, Serum Cholestoral, Fasting Blood Sugar, Resting Electrocardiographic Results, Maximum Heart Rate Achieved, Exercise Induced Angina, ST Oldpeak, and Slope Peak.
-Note: You can run examples using the "Random" Button.
+
+*Note: You can run examples using the "Example" Button, which utilizes the data from the smaller dataset (not used for the model) as examples. Or the "Jane Doe" Button that is a patient record not found in either of the datasets.*
 
 # Datasets: 
 https://www.kaggle.com/nakkapraneethreddy/heart-disease-data-combined
  
 https://www.kaggle.com/lykin22/heart-disease-dataset?select=data.csv 
 
-* There are several options to save and load the model and scaler. In this project, the pickle and ternsorflow library were used.
-
-
 # Screenshots of Application
+![OpeningImage](static/images/deepheartscreenshot.jpg)
 
-![OpenningImage](static\images\deepheartscreenshot.jpg)
-
-![PredictionImage](static\images\predictiondeepHeart.jpg)
+![PredictionImage](static/images/predictiondeepHeart.jpg)
