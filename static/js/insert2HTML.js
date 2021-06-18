@@ -1,5 +1,7 @@
 console.log('insert2HTML');
 
+/* I wrote this function for a side project of mine, but I thought it would be fun and useful to use it for my write up 
+of the process of building the model. */
 
 
 // ===================================================================================
