@@ -3,6 +3,7 @@
 Group Members: Ainash Toleu, Andy McRae and Jeannaej Yambing
 
 Link to Heroku Server: https://deepheart.herokuapp.com/
+*This link takes about 20-30 seconds to load the first time due to it's size*
 
 # Overview:
 The deepheart website uses Neural Network to predict if a patient does or does not have heart disease. 
@@ -26,3 +27,10 @@ https://www.kaggle.com/nakkapraneethreddy/heart-disease-data-combined
 https://www.kaggle.com/lykin22/heart-disease-dataset?select=data.csv 
 
 * There are several options to save and load the model and scaler. In this project, the pickle and ternsorflow library were used.
+
+
+# Screenshots of Application
+
+![OpenningImage](static\images\deepheartscreenshot.jpg)
+
+![PredictionImage](static\images\predictiondeepHeart.jpg)
